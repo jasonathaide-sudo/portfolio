@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Athaide - Global Operations & AI Transformation Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a202c;
+            --accent: #3b82f6;
+            --highlight: #10b981;
+            --bg: #f8fafc;
+            --text: #1f2937;
+            --text-light: #64748b;
+            --text-lighter: #94a3b8;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 8rem 0 6rem 0;
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 350px;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+        }
+
+        .cta-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-left: 1rem;
+        }
+
+        .cta-secondary:hover {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                padding: 6rem 0 4rem 0;
+                margin-top: 60px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .cta-secondary {
+                display: block;
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .about-text li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .about-text li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-weight: bold;
+        }
+
+        .competency-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin: 1rem 0;
+        }
+
+        .competency-card strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--highlight);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.4rem 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .skill-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .experience-item h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-meta span {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .experience-scope {
+            background: var(--bg);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-item li {
+            padding: 0.6rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            padding: 2rem;
+            color: var(--white);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+        }
+
+        /* Certifications Section */
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .cert-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cert-info {
+            padding: 1.5rem;
+        }
+
+        .cert-info h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-org {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: var(--highlight);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--white);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .email-link {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .email-link:hover {
+            background-color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .experience-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+
+            .contact-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .cert-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-photo {
+                max-width: 280px;
+                height: 320px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Scroll Animations - Stagger Effect */
+        .skill-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .skill-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .skill-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .experience-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .experience-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .cert-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .cert-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .cert-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#hero" class="logo">Jason Athaide</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Global Operations & AI Transformation Leader</h1>
+                    <p>20+ years driving operational excellence, customer experience, and AI-enabled transformation across APAC, EMEA, and North America.</p>
+                    <div>
+                        <a href="#projects" class="cta-button">Explore My Work</a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <img src="./Jason_Athaide_photo.jpg" alt="Jason Athaide - Operations & AI Transformation Leader" onerror="this.style.backgroundColor='#3b82f6'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Seasoned leader with proven expertise in building and optimizing high-performing operations teams</p>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Seasoned Delivery Leader with 20+ years driving operational excellence, SLA governance, and AI-enabled transformation across APAC, EMEA, and North America. Directed 200+ FTE in large-scale, compliance-intensive operations achieving 80%+ SLA compliance and 20% efficiency gains. Expertise in multi-service-line contact centre operations, senior stakeholder management, and intelligent automation. Certified in AI Agents & Autonomous Systems, Lean Six Sigma (DMAIC), and prompt engineering. Currently building independent consulting and fractional COO advisory practice.</p>
+
+                    <h3>Core Competencies</h3>
+                    <div class="competency-card">
+                        <strong>Operations & Process Excellence</strong>
+                        Voice contact center management, workflow optimization, operational scaling, SLA management
+                    </div>
+
+                    <div class="competency-card">
+                        <strong>Background Verification & Identity Services</strong>
+                        Compliance frameworks, risk management, regulatory alignment, vendor partnerships
+                    </div>
+
+                    <div class="competency-card">
+                        <strong>AI & Automation Strategy</strong>
+                        Generalist AI, prompt engineering, workflow automation (n8n), MCP integration, AI agent implementation
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <div class="competency-card">
+                        <strong>Team Leadership & Culture</strong>
+                        Team building, cross-functional leadership, performance management, talent retention
+                    </div>
+
+                    <div class="competency-card">
+                        <strong>Business Transformation</strong>
+                        Technology adoption, automation ROI, cost reduction initiatives, service delivery enhancement
+                    </div>
+
+                    <div class="competency-card">
+                        <strong>Customer Experience</strong>
+                        Service design, NPS optimization, customer retention strategies, omnichannel delivery
+                    </div>
+
+                    <h3>Current Focus</h3>
+                    <p style="color: var(--text-light); margin-top: 1rem;">Advising mid-market and enterprise clients on AI-enabled operations transformation, intelligent workflow automation, cost optimization, and scalable service delivery models. Seeking Director/VP-level roles in Operations, Customer Experience, or AI Transformation where proven leadership in large-scale, multi-geography operations can drive measurable business impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <p class="section-subtitle">A comprehensive toolkit for strategic operations and AI transformation</p>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Operations & Service Delivery</h3>
+                    <ul>
+                        <li>SLA Management & Governance</li>
+                        <li>Contact Centre Excellence</li>
+                        <li>Compliance & Risk Management</li>
+                        <li>Multi-Service-Line Operations</li>
+                        <li>Escalation Management & Resolution</li>
+                        <li>Quality Frameworks & Assurance</li>
+                        <li>Workforce Planning & Forecasting</li>
+                        <li>Operating Model Design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>AI & Intelligent Automation</h3>
+                    <ul>
+                        <li>AI Agents & Autonomous Systems</li>
+                        <li>AI-Enabled Process Transformation</li>
+                        <li>Prompt Engineering & Claude</li>
+                        <li>n8n Workflow Automation</li>
+                        <li>Intelligent Case Routing</li>
+                        <li>Voice Agents & NLU</li>
+                        <li>Automation ROI Assessment</li>
+                        <li>MCP Integration</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Leadership & Development</h3>
+                    <ul>
+                        <li>Large-Scale Team Leadership (200+ FTE)</li>
+                        <li>Talent Development & Succession Planning</li>
+                        <li>Transformation & Change Management</li>
+                        <li>Budget Management & P&L Accountability</li>
+                        <li>Cost Optimization & Efficiency</li>
+                        <li>Senior Stakeholder Management</li>
+                        <li>Lean Six Sigma (DMAIC)</li>
+                        <li>Business Development & Deal Support</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Technical Systems & Tools</h3>
+                    <ul>
+                        <li>CRM Systems (Salesforce, ServiceNow, Zoho)</li>
+                        <li>Workforce Management Platforms</li>
+                        <li>Analytics & BI Tools</li>
+                        <li>Advanced Excel & Data Analysis</li>
+                        <li>ATS Platforms</li>
+                        <li>Performance Dashboard Design</li>
+                        <li>Compliance & Audit Tools</li>
+                        <li>Cloud Platforms (AWS, Azure basics)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">Strategic leadership across operations, customer experience, and transformation initiatives</p>
+
+            <div class="experience-item">
+                <h3>Associate Vice President, Global Operations</h3>
+                <div class="experience-meta">
+                    <span>Sterling (acquired by First Advantage)</span>
+                    <span class="experience-scope">Nov 2016 – Feb 2026 | APAC, EMEA, North America | 200+ FTE</span>
+                </div>
+                <ul>
+                    <li>Directed workforce management and service delivery for 200+ professionals across 3 regions, achieving <strong>80%+ SLA compliance</strong> and <strong>20% operational efficiency gains</strong> through structured process optimization and global standardization</li>
+                    <li>Designed and executed global operational transformation consolidating fragmented workflows into unified operating model, reducing <strong>AHT by 10%</strong>, increasing CSAT to <strong>4.5/5</strong>, and establishing repeatable escalation protocols aligned with compliance requirements</li>
+                    <li>Elevated customer satisfaction by <strong>5% across all regions</strong> through targeted service delivery optimization, proactive escalation management, and redesigned protocols reducing resolution time by <strong>20%</strong></li>
+                    <li>Developed comprehensive talent development and succession planning programs, reducing onboarding time by <strong>10%</strong> and mentoring <strong>5+ professionals into leadership roles</strong></li>
+                    <li>Applied Lean Six Sigma (DMAIC) methodology systematically identifying and eliminating operational bottlenecks, improving service quality metrics and embedding continuous improvement culture across operations</li>
+                    <li>Designed and piloted intelligent case categorization and escalation agents optimizing contact center workflow routing, improving first-contact resolution and reducing manual escalations</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Manager, Operations</h3>
+                <div class="experience-meta">
+                    <span>FIS Global Business Solutions</span>
+                    <span class="experience-scope">Mar 2012 – Nov 2016 | Team: 45–60 Professionals</span>
+                </div>
+                <ul>
+                    <li>Managed high-volume, SLA-driven operations in financial services BPO, consistently delivering <strong>80%+ CSAT scores</strong> and achieving <strong>10% improvement in client response times</strong> through process re-engineering</li>
+                    <li>Established quality assurance protocols and escalation frameworks that became operational standards, reducing service delivery failures and improving customer experience consistency</li>
+                    <li>Led workforce management initiatives optimizing staffing levels, reducing idle time, and improving utilization rates through data-driven forecasting and scheduling</li>
+                    <li>Implemented performance management system increasing team engagement by <strong>10%</strong> through transparent KPI frameworks and outcome-based coaching</li>
+                    <li>Redesigned case management workflows eliminating chronic backlogs, implementing First Contact Resolution (FCR) accountability, and improving cost-per-transaction through efficiency gains</li>
+                    <li>Applied root-cause analysis and preventive controls, reducing operational errors by <strong>10%</strong> and establishing quality standards across the center</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Initiatives</h2>
+            <p class="section-subtitle">Strategic initiatives and AI-driven transformations</p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Be10X AI Generalist Hackathon</h3>
+                        <p style="font-size: 0.95rem; margin: 0;">Smart Travel Portal (Yashveer Holidays)</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Built an AI-powered travel planning solution leveraging Claude AI and modern workflow automation. Designed intelligent itinerary recommendations, customer preference mapping, and multi-destination optimization using generalist AI capabilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Claude AI</span>
+                            <span class="tag">n8n Automation</span>
+                            <span class="tag">Hackathon</span>
+                            <span class="tag">Travel Tech</span>
+                        </div>
+                        <a href="https://github.com/jasonathaide" target="_blank" class="project-link">View Profile →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Consulting & Fractional COO Practice</h3>
+                        <p style="font-size: 0.95rem; margin: 0;">AI Transformation & Operations Excellence</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Building independent consulting practice advising mid-market and enterprise organizations on AI agent implementation, intelligent workflow automation, operational transformation, cost optimization, and scalable service delivery models.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI Strategy</span>
+                            <span class="tag">Operations</span>
+                            <span class="tag">Consulting</span>
+                            <span class="tag">Leadership</span>
+                        </div>
+                        <a href="https://linkedin.com/in/jasonathaide" target="_blank" class="project-link">Connect on LinkedIn →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Global Operations Unification (Sterling)</h3>
+                        <p style="font-size: 0.95rem; margin: 0;">Strategic Transformation Initiative</p>
+                    </div>
+                    <div class="project-content">
+                        <p><strong>Metrics:</strong> Consolidated fragmented workflows across US, EMEA, APAC into unified operating model delivering 20% efficiency gain, 10% AHT reduction, CSAT 4.5/5, and standardized escalation framework across 200+ FTE distributed teams.</p>
+                        <div class="project-tags">
+                            <span class="tag">Operations</span>
+                            <span class="tag">Global Scale</span>
+                            <span class="tag">SLA Excellence</span>
+                            <span class="tag">Cost Optimization</span>
+                        </div>
+                        <a href="#experience" class="project-link">View Full Experience →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Credentials</h2>
+            <p class="section-subtitle">Professional certifications in AI, automation, and operational leadership</p>
+
+            <div class="cert-gallery">
+                <div class="cert-item">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); font-size: 2rem;">🤖</div>
+                    <div class="cert-info">
+                        <h4>AI Agents & Autonomous Systems</h4>
+                        <div class="cert-org">Be10x | Phase 1.3</div>
+                        <div class="cert-date">2026</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); font-size: 2rem;">🧠</div>
+                    <div class="cert-info">
+                        <h4>AI Fluency: Framework & Foundations</h4>
+                        <div class="cert-org">Anthropic</div>
+                        <div class="cert-date">2025</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); font-size: 2rem;">📚</div>
+                    <div class="cert-info">
+                        <h4>Claude 101</h4>
+                        <div class="cert-org">Anthropic</div>
+                        <div class="cert-date">2025</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); font-size: 2rem;">⚙️</div>
+                    <div class="cert-info">
+                        <h4>OM Excel Workshop: AI-Powered Automation</h4>
+                        <div class="cert-org">Be10x</div>
+                        <div class="cert-date">Mar 2026</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); font-size: 2rem;">🎯</div>
+                    <div class="cert-info">
+                        <h4>Lean Six Sigma Yellow Belt</h4>
+                        <div class="cert-org">Process Re-engineering & Continuous Improvement (DMAIC)</div>
+                        <div class="cert-date">2023</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); font-size: 2rem;">🎤</div>
+                    <div class="cert-info">
+                        <h4>Public Speaking & Communications</h4>
+                        <div class="cert-org">Clares Institute of Management</div>
+                        <div class="cert-date">2023</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="font-size: 3rem; background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);">📚</div>
+                    <div class="cert-info">
+                        <h4>Bachelor of Commerce</h4>
+                        <div class="cert-org">Mumbai University</div>
+                        <div class="cert-date">1997</div>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image" style="font-size: 3rem; background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);">📖</div>
+                    <div class="cert-info">
+                        <h4>Diploma in Business Management</h4>
+                        <div class="cert-org">Wellingkar's Institute of Management</div>
+                        <div class="cert-date">2006</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title" style="color: var(--white);">Let's Connect</h2>
+                <p>I'm open to consulting opportunities, advisory roles, strategic partnerships, and thoughtful conversations about operations, AI transformation, and leadership.</p>
+
+                <div class="contact-links">
+                    <a href="mailto:jasonathaide@gmail.com" class="contact-link email-link">✉ Send Email</a>
+                    <a href="https://linkedin.com/in/jasonathaide" target="_blank" class="contact-link">in LinkedIn</a>
+                    <a href="tel:+919820711452" class="contact-link">📞 Call</a>
+                </div>
+
+                <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 2rem;">Based in Mumbai, Maharashtra | +91 9820711452 | Available for consulting & advisory engagements globally</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jason Athaide. All rights reserved. | <a href="#hero">Back to Top</a></p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveNav();
+                }
+            });
+        });
+
+        // Update active navigation on scroll
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and items
+        document.querySelectorAll('.skill-card, .experience-item, .project-card, .cert-item').forEach(el => {
+            observer.observe(el);
+        });
+
+
+
+        // Initialize active nav
+        updateActiveNav();
+    </script>
+</body>
+</html>
